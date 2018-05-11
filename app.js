@@ -16,8 +16,8 @@ if(!config.get('jwtPrivateKey')) {
     console.log('fatal error, private key is not defined');
     process.exit(1);
 }
-
-mongoose.connect('mongodb://localhost/qiCourses')
+const db = config.get('db');
+mongoose.connect(db)
     .then(()=> console.log('Connected to Monogodb'))
     .catch(err => console.log('cannot connect with monogo', err));
 

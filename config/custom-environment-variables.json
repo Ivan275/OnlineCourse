@@ -1,3 +1,4 @@
 {
-    "jwtPrivateKey": "qi_jwtPrivateKey"
+    "jwtPrivateKey": "qi_jwtPrivateKey",
+    "db": "qi_course_db"
 }
