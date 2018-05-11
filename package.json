@@ -4,15 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "v8.11.1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-register": "^6.26.0",
+    "bcrypt": "^2.0.1",
+    "compression": "^1.7.2",
+    "config": "^1.30.0",
     "express": "^4.16.3",
     "helmet": "^3.12.0",
     "joi": "^13.3.0",
+    "jsonwebtoken": "^8.2.1",
     "lodash": "^4.17.10",
     "mongoose": "^5.1.0",
     "morgan": "^1.9.0"

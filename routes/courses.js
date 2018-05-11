@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const {Course, validate} = require('../models/course');
+const auth = require('../middlewares/auth');
+const admin = require('../middlewares/admin');
 
 router.get("/", async (req, res) => {
     const courses = await Course
@@ -11,7 +13,7 @@ router.get("/", async (req, res) => {
     res.send(courses);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
     const {error} = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
@@ -38,7 +40,7 @@ router.put("/:id", async (req, res) => {
     res.send(result);
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id",[auth, admin], async (req, res) => {
         const result = await Course.findByIdAndRemove(req.params.id);
         if(!result) return res.status(404).send('Invalid given ID which is not found');
         res.send(result);
